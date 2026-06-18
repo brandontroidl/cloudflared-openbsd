@@ -1,0 +1,4 @@
+# build artifacts
+/cloudflared/
+cloudflared-openbsd-amd64
+*.gz
