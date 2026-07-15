@@ -1,0 +1,22 @@
+#!/bin/ksh
+#
+# OpenBSD rc.d(8) script for a cloudflared binary built from this repo.
+# Install as /etc/rc.d/cloudflared (root:bin, mode 0555), then:
+#   rcctl enable cloudflared
+#   rcctl start cloudflared
+#
+# Configure the tunnel in /etc/cloudflared/config.yml before starting.
+# For a named tunnel, override the flags in /etc/rc.conf.local, e.g.:
+#   cloudflared_flags="--no-autoupdate tunnel run mytunnel"
+# Do not put a tunnel token here; keep secrets in the config file.
+
+daemon="/usr/local/sbin/cloudflared"
+daemon_user="_cloudflared"
+daemon_flags="--no-autoupdate tunnel run"
+
+. /etc/rc.d/rc.subr
+
+rc_bg=YES
+rc_reload=NO
+
+rc_cmd $1

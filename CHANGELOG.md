@@ -9,7 +9,13 @@ default.
 
 ## [Unreleased]
 
-_No unreleased changes._
+### Added
+
+- `contrib/cloudflared.rc`, an OpenBSD `rc.d` service script, with README
+  instructions for running the binary as a managed daemon under a dedicated
+  `_cloudflared` user.
+- README section positioning this cross-build against the ports-tree port
+  ([openbsd-port-cloudflared](https://github.com/ivoronin/openbsd-port-cloudflared)).
 
 ## [0.1.0] - 2026-06-18
 
