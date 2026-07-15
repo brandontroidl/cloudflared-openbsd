@@ -14,11 +14,11 @@ rm -rf cloudflared
 git clone --depth 1 --branch "$VER" https://github.com/cloudflare/cloudflared.git
 cd cloudflared
 
-# patch 1 — add openbsd to the diagnostic network collector build tag
+# patch 1 - add openbsd to the diagnostic network collector build tag
 f=diagnostic/network/collector_unix.go
 sed '1s#.*#//go:build darwin || linux || openbsd#' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
 
-# patch 2 — OpenBSD system collector
+# patch 2 - OpenBSD system collector
 cp "$HERE/system_collector_openbsd.go" diagnostic/system_collector_openbsd.go
 
 GOTOOLCHAIN=auto GOOS=openbsd GOARCH=amd64 CGO_ENABLED=0 GOFLAGS=-mod=vendor \
