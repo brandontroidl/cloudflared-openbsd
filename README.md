@@ -11,23 +11,6 @@ static binary from an unmodified upstream tree.
 The tunnel data path is upstream code, untouched. The added collector runs only
 under `cloudflared tunnel diag`.
 
-## This repo or the OpenBSD port
-
-Two projects add OpenBSD support to cloudflared using the same underlying patch.
-Choose by how you want to install:
-
-- [**openbsd-port-cloudflared**](https://github.com/ivoronin/openbsd-port-cloudflared)
-  is a proper OpenBSD ports-tree port: `make install`, a packaged build, an
-  `rc.d` service, and a dedicated user. If you are on OpenBSD and want a managed,
-  packaged install done the standard way, use that.
-- **This repo** is a standalone cross-build script. It produces a single static
-  `openbsd/amd64` binary from any build host (Linux, macOS, a CI runner) with no
-  ports tree required. Use it when you want a binary quickly, or to build OpenBSD
-  binaries without an OpenBSD host.
-
-This repo stays deliberately small and build-focused. For a maintained,
-official-channel install, prefer the ports-tree port.
-
 ## Requirements
 
 - Go (a recent toolchain; the build uses `GOTOOLCHAIN=auto`)
